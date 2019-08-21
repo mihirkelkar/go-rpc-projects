@@ -20,3 +20,20 @@ service GreetService{
   //lets define the first rpc service here.
   rpc Greet(GreetRequest) returns (GreetResponse) {};
 }
+
+message Addition{
+  int32 firstparam = 1;
+  int32 secondparam = 2;
+}
+
+message SumRequest{
+  Addition addition = 1;
+}
+
+message SumResponse{
+  int32 answer = 1;
+}
+
+service AdditionService{
+  rpc Add(SumRequest) returns (SumResponse){}
+}

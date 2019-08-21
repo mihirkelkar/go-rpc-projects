@@ -149,29 +149,163 @@ func (m *GreetResponse) GetResult() string {
 	return ""
 }
 
+type Addition struct {
+	Firstparam           int32    `protobuf:"varint,1,opt,name=firstparam,proto3" json:"firstparam,omitempty"`
+	Secondparam          int32    `protobuf:"varint,2,opt,name=secondparam,proto3" json:"secondparam,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Addition) Reset()         { *m = Addition{} }
+func (m *Addition) String() string { return proto.CompactTextString(m) }
+func (*Addition) ProtoMessage()    {}
+func (*Addition) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fe6f881da19a2871, []int{3}
+}
+
+func (m *Addition) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Addition.Unmarshal(m, b)
+}
+func (m *Addition) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Addition.Marshal(b, m, deterministic)
+}
+func (m *Addition) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Addition.Merge(m, src)
+}
+func (m *Addition) XXX_Size() int {
+	return xxx_messageInfo_Addition.Size(m)
+}
+func (m *Addition) XXX_DiscardUnknown() {
+	xxx_messageInfo_Addition.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Addition proto.InternalMessageInfo
+
+func (m *Addition) GetFirstparam() int32 {
+	if m != nil {
+		return m.Firstparam
+	}
+	return 0
+}
+
+func (m *Addition) GetSecondparam() int32 {
+	if m != nil {
+		return m.Secondparam
+	}
+	return 0
+}
+
+type SumRequest struct {
+	Addition             *Addition `protobuf:"bytes,1,opt,name=addition,proto3" json:"addition,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *SumRequest) Reset()         { *m = SumRequest{} }
+func (m *SumRequest) String() string { return proto.CompactTextString(m) }
+func (*SumRequest) ProtoMessage()    {}
+func (*SumRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fe6f881da19a2871, []int{4}
+}
+
+func (m *SumRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SumRequest.Unmarshal(m, b)
+}
+func (m *SumRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SumRequest.Marshal(b, m, deterministic)
+}
+func (m *SumRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SumRequest.Merge(m, src)
+}
+func (m *SumRequest) XXX_Size() int {
+	return xxx_messageInfo_SumRequest.Size(m)
+}
+func (m *SumRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SumRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SumRequest proto.InternalMessageInfo
+
+func (m *SumRequest) GetAddition() *Addition {
+	if m != nil {
+		return m.Addition
+	}
+	return nil
+}
+
+type SumResponse struct {
+	Answer               int32    `protobuf:"varint,1,opt,name=answer,proto3" json:"answer,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SumResponse) Reset()         { *m = SumResponse{} }
+func (m *SumResponse) String() string { return proto.CompactTextString(m) }
+func (*SumResponse) ProtoMessage()    {}
+func (*SumResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_fe6f881da19a2871, []int{5}
+}
+
+func (m *SumResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SumResponse.Unmarshal(m, b)
+}
+func (m *SumResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SumResponse.Marshal(b, m, deterministic)
+}
+func (m *SumResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SumResponse.Merge(m, src)
+}
+func (m *SumResponse) XXX_Size() int {
+	return xxx_messageInfo_SumResponse.Size(m)
+}
+func (m *SumResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SumResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SumResponse proto.InternalMessageInfo
+
+func (m *SumResponse) GetAnswer() int32 {
+	if m != nil {
+		return m.Answer
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Greeting)(nil), "greet.Greeting")
 	proto.RegisterType((*GreetRequest)(nil), "greet.GreetRequest")
 	proto.RegisterType((*GreetResponse)(nil), "greet.GreetResponse")
+	proto.RegisterType((*Addition)(nil), "greet.Addition")
+	proto.RegisterType((*SumRequest)(nil), "greet.SumRequest")
+	proto.RegisterType((*SumResponse)(nil), "greet.SumResponse")
 }
 
 func init() { proto.RegisterFile("greet/greetpb/greet.proto", fileDescriptor_fe6f881da19a2871) }
 
 var fileDescriptor_fe6f881da19a2871 = []byte{
-	// 203 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4c, 0x2f, 0x4a, 0x4d,
-	0x2d, 0xd1, 0x07, 0x93, 0x05, 0x49, 0x10, 0x5a, 0xaf, 0xa0, 0x28, 0xbf, 0x24, 0x5f, 0x88, 0x15,
-	0xcc, 0x51, 0x72, 0xe3, 0xe2, 0x70, 0x07, 0x31, 0x32, 0xf3, 0xd2, 0x85, 0x64, 0xb9, 0xb8, 0xd2,
-	0x32, 0x8b, 0x8a, 0x4b, 0xe2, 0xf3, 0x12, 0x73, 0x53, 0x25, 0x18, 0x15, 0x18, 0x35, 0x38, 0x83,
-	0x38, 0xc1, 0x22, 0x7e, 0x89, 0xb9, 0xa9, 0x42, 0xd2, 0x5c, 0x9c, 0x39, 0x89, 0x30, 0x59, 0x26,
-	0xb0, 0x2c, 0x07, 0x48, 0x00, 0x24, 0xa9, 0x64, 0xcd, 0xc5, 0x03, 0x36, 0x27, 0x28, 0xb5, 0xb0,
-	0x34, 0xb5, 0xb8, 0x44, 0x48, 0x9b, 0x8b, 0x23, 0x1d, 0x6a, 0x2e, 0xd8, 0x24, 0x6e, 0x23, 0x7e,
-	0x3d, 0x88, 0xf5, 0x30, 0xeb, 0x82, 0xe0, 0x0a, 0x94, 0xd4, 0xb9, 0x78, 0xa1, 0x9a, 0x8b, 0x0b,
-	0xf2, 0xf3, 0x8a, 0x53, 0x85, 0xc4, 0xb8, 0xd8, 0x8a, 0x52, 0x8b, 0x4b, 0x73, 0x4a, 0xa0, 0xae,
-	0x80, 0xf2, 0x8c, 0x5c, 0xa0, 0xb6, 0x04, 0xa7, 0x16, 0x95, 0x65, 0x26, 0xa7, 0x0a, 0x99, 0x70,
-	0xb1, 0x82, 0xf9, 0x42, 0xc2, 0xc8, 0x86, 0x43, 0xdd, 0x20, 0x25, 0x82, 0x2a, 0x08, 0x31, 0x5b,
-	0x89, 0xc1, 0x89, 0x33, 0x8a, 0x1d, 0x1a, 0x22, 0x49, 0x6c, 0xe0, 0xc0, 0x30, 0x06, 0x04, 0x00,
-	0x00, 0xff, 0xff, 0x63, 0x1f, 0xeb, 0xd0, 0x29, 0x01, 0x00, 0x00,
+	// 300 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x5c, 0x92, 0x41, 0x4b, 0xc3, 0x40,
+	0x10, 0x85, 0x6d, 0xa5, 0x35, 0x99, 0x2a, 0xc5, 0x55, 0x44, 0x2b, 0x4a, 0x59, 0x10, 0x05, 0xa1,
+	0x42, 0xf4, 0x22, 0x9e, 0x22, 0xa2, 0x17, 0xf1, 0x90, 0xde, 0xbc, 0xc8, 0xb6, 0x19, 0x43, 0xa0,
+	0xd9, 0xc4, 0xdd, 0x8d, 0xfe, 0x7d, 0xc9, 0x64, 0xb6, 0x8d, 0x5e, 0x92, 0xcc, 0x9b, 0x37, 0x6f,
+	0xbe, 0x6c, 0x02, 0x27, 0x99, 0x41, 0x74, 0x37, 0x74, 0xad, 0x16, 0xed, 0x7d, 0x56, 0x99, 0xd2,
+	0x95, 0x62, 0x40, 0x85, 0x7c, 0x86, 0xe0, 0xa5, 0x79, 0xc8, 0x75, 0x26, 0xce, 0x00, 0x3e, 0x73,
+	0x63, 0xdd, 0x87, 0x56, 0x05, 0x1e, 0xf7, 0xa6, 0xbd, 0xab, 0x30, 0x09, 0x49, 0x79, 0x53, 0x05,
+	0x8a, 0x53, 0x08, 0x57, 0xca, 0x77, 0xfb, 0xd4, 0x0d, 0x1a, 0xa1, 0x69, 0xca, 0x07, 0xd8, 0xa5,
+	0x9c, 0x04, 0xbf, 0x6a, 0xb4, 0x4e, 0x5c, 0x43, 0x90, 0x71, 0x2e, 0x25, 0x8d, 0xa2, 0xf1, 0xac,
+	0x5d, 0xef, 0xd7, 0x25, 0x6b, 0x83, 0xbc, 0x84, 0x3d, 0x1e, 0xb6, 0x55, 0xa9, 0x2d, 0x8a, 0x23,
+	0x18, 0x1a, 0xb4, 0xf5, 0xca, 0x31, 0x05, 0x57, 0xf2, 0x15, 0x82, 0x38, 0x4d, 0x73, 0x97, 0x97,
+	0x5a, 0x9c, 0x33, 0x6d, 0xa5, 0x8c, 0x2a, 0xc8, 0x37, 0x48, 0x3a, 0x8a, 0x98, 0xc2, 0xc8, 0xe2,
+	0xb2, 0xd4, 0x69, 0x6b, 0xe8, 0x93, 0xa1, 0x2b, 0xc9, 0x7b, 0x80, 0x79, 0x5d, 0x74, 0x88, 0x15,
+	0x67, 0xff, 0x23, 0xf6, 0x2b, 0x93, 0xb5, 0x41, 0x5e, 0xc0, 0x88, 0x46, 0x37, 0xbc, 0x4a, 0xdb,
+	0x1f, 0x34, 0xcc, 0xc1, 0x55, 0xf4, 0xc4, 0xa7, 0x32, 0x47, 0xf3, 0x9d, 0x2f, 0x51, 0xdc, 0xc1,
+	0x80, 0x6a, 0x71, 0xd0, 0x3d, 0x0c, 0x26, 0x98, 0x1c, 0xfe, 0x15, 0xdb, 0x6c, 0xb9, 0x15, 0xc5,
+	0x30, 0xf6, 0x08, 0x3e, 0x68, 0x06, 0xdb, 0x71, 0x9a, 0x8a, 0x7d, 0x9e, 0xd8, 0xbc, 0xc6, 0x44,
+	0x74, 0x25, 0x1f, 0xf1, 0x18, 0xbe, 0xef, 0xf0, 0x4f, 0xb0, 0x18, 0xd2, 0xf7, 0xbf, 0xfd, 0x0d,
+	0x00, 0x00, 0xff, 0xff, 0x0d, 0x4a, 0x66, 0xa9, 0x1c, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -250,6 +384,78 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Greet",
 			Handler:    _GreetService_Greet_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "greet/greetpb/greet.proto",
+}
+
+// AdditionServiceClient is the client API for AdditionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type AdditionServiceClient interface {
+	Add(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
+}
+
+type additionServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewAdditionServiceClient(cc *grpc.ClientConn) AdditionServiceClient {
+	return &additionServiceClient{cc}
+}
+
+func (c *additionServiceClient) Add(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error) {
+	out := new(SumResponse)
+	err := c.cc.Invoke(ctx, "/greet.AdditionService/Add", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdditionServiceServer is the server API for AdditionService service.
+type AdditionServiceServer interface {
+	Add(context.Context, *SumRequest) (*SumResponse, error)
+}
+
+// UnimplementedAdditionServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedAdditionServiceServer struct {
+}
+
+func (*UnimplementedAdditionServiceServer) Add(ctx context.Context, req *SumRequest) (*SumResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+
+func RegisterAdditionServiceServer(s *grpc.Server, srv AdditionServiceServer) {
+	s.RegisterService(&_AdditionService_serviceDesc, srv)
+}
+
+func _AdditionService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SumRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdditionServiceServer).Add(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greet.AdditionService/Add",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdditionServiceServer).Add(ctx, req.(*SumRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _AdditionService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "greet.AdditionService",
+	HandlerType: (*AdditionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Add",
+			Handler:    _AdditionService_Add_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
