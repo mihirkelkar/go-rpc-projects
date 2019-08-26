@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package prime;
+option go_package="primepb";
+
+message PrimeMessage{
+  int32 number=1;
+}
+
+message PrimeRequest{
+  PrimeMessage message=1;
+}
+
+message PrimeResponse{
+  int32 number=1;
+}
+
+service PrimeService{
+  //server streaming
+  rpc FactorizeManyTimes(PrimeRequest) returns (stream PrimeResponse) {};
+}
